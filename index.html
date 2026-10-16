@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diavas ITP — Stație Autorizată RAR, Cluj-Napoca</title>
+  <meta name="description" content="Stație ITP autorizată RAR în Cluj-Napoca. Verificare tehnică rapidă pentru autoturisme, GPL, GNC, utilitare și vehicule hibride. Str. Beiușului 54A.">
+  <meta property="og:title" content="Diavas ITP — Autorizat RAR, Cluj-Napoca">
+  <meta property="og:description" content="ITP rapid și precis. Autorizat RAR. Str. Beiușului 54A, Cluj-Napoca.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ro_RO">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23070C1A'/><text x='50%' y='57%' font-size='20' text-anchor='middle' dominant-baseline='middle' font-family='monospace' font-weight='bold' fill='%2300FFCC'>D</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+
+  <script type="importmap">
+  {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js"}}
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoRepair",
+    "name": "Diavas ITP",
+    "legalName": "DIAVAS AYAN S.R.L.",
+    "description": "Stație ITP autorizată RAR în Cluj-Napoca",
+    "foundingDate": "2017",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Strada Beiușului 54A",
+      "addressLocality": "Cluj-Napoca",
+      "addressRegion": "Cluj",
+      "addressCountry": "RO"
+    },
+    "openingHoursSpecification": [
+      {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"18:00"},
+      {"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"08:00","closes":"13:00"}
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <span class="logo-mark">D</span>
+      <span class="logo-text">DIAVAS<span class="logo-itp">ITP</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#servicii">Servicii</a></li>
+      <li><a href="#cum-functioneaza">Cum funcționează</a></li>
+      <li><a href="#despre">Despre</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#programare" class="nav-cta">Programare</a>
+    <button class="nav-burger" id="burger" aria-label="Deschide meniu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="hero" class="hero">
+  <canvas id="scan3d" aria-hidden="true"></canvas>
+
+  <div class="hero-content">
+    <p class="hero-badge">
+      <span class="badge-dot" aria-hidden="true"></span>
+      Autorizat RAR &nbsp;·&nbsp; Cluj-Napoca
+    </p>
+    <h1 class="hero-headline">
+      Verificare Tehnică<br>
+      <em>fără surprize</em>
+    </h1>
+    <p class="hero-sub">Rapid. Precis. La timp.</p>
+    <div class="hero-ctas">
+      <a href="#programare" class="btn-primary">Programează-te acum</a>
+      <a href="#servicii" class="btn-ghost">Servicii ↓</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="stat-val"><span class="stat-num" data-count="7">0</span><span class="stat-plus">+</span></span>
+        <span class="stat-label">ani experiență</span>
+      </div>
+      <div class="hero-stat">
+        <span class="stat-val"><span class="stat-num" data-count="5000">0</span><span class="stat-plus">+</span></span>
+        <span class="stat-label">vehicule inspectate</span>
+      </div>
+      <div class="hero-stat">
+        <span class="stat-val"><span class="stat-num">30</span><span class="stat-unit">min</span></span>
+        <span class="stat-label">durată medie</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Diagnostic HUD overlay -->
+  <div class="scan-ui" aria-hidden="true">
+    <div class="scan-tag" style="--tx:7%;--ty:54%">SYS: FRÂNARE<span class="pass">✓ PASS</span></div>
+    <div class="scan-tag" style="--tx:73%;--ty:38%">SYS: EMISII<span class="pass">✓ PASS</span></div>
+    <div class="scan-tag scanning" style="--tx:30%;--ty:24%">SYS: DIRECȚIE<span class="checking">◌ CHECK</span></div>
+    <div class="scan-tag" style="--tx:60%;--ty:67%">SYS: LUMINI<span class="pass">✓ PASS</span></div>
+    <div class="scan-tag" style="--tx:5%;--ty:32%">SYS: SUSPENSIE<span class="pass">✓ PASS</span></div>
+  </div>
+
+  <div class="hero-scroll" aria-hidden="true">
+    <span class="scroll-line"></span>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section id="servicii" class="services">
+  <div class="container">
+    <div class="section-head">
+      <p class="section-tag">Ce verificăm</p>
+      <h2>Servicii ITP</h2>
+    </div>
+    <div class="services-grid">
+
+      <article class="service-card reveal-item">
+        <div class="sc-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 30h34M9 30l2.5-9h25l2.5 9M13 21l1.5-6h19l1.5 6"/>
+            <circle cx="14" cy="34" r="3.5"/>
+            <circle cx="34" cy="34" r="3.5"/>
+            <path d="M7 30H4M44 30h-3"/>
+          </svg>
+        </div>
+        <h3>Autoturisme</h3>
+        <p>Verificare completă pentru mașini pe benzină și motorină. Certificat ITP eliberat pe loc, fără birocrație.</p>
+        <span class="sc-chip">~30 min</span>
+      </article>
+
+      <article class="service-card reveal-item">
+        <div class="sc-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 30h34M9 30l2.5-9h25l2.5 9M13 21l1.5-6h19l1.5 6"/>
+            <circle cx="14" cy="34" r="3.5"/>
+            <circle cx="34" cy="34" r="3.5"/>
+            <rect x="20" y="7" width="8" height="5" rx="1.5"/>
+            <line x1="24" y1="12" x2="24" y2="16"/>
+          </svg>
+        </div>
+        <h3>GPL &amp; GNC</h3>
+        <p>Inspecție specializată pentru vehicule pe gaz petrolier lichefiat sau gaz natural comprimat.</p>
+        <span class="sc-chip">~45 min</span>
+      </article>
+
+      <article class="service-card reveal-item">
+        <div class="sc-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 31h40M6 31l3-11h30l3 11M10 20l2-7h24l2 7"/>
+            <circle cx="13" cy="35" r="3.5"/>
+            <circle cx="35" cy="35" r="3.5"/>
+            <rect x="16" y="10" width="16" height="7" rx="1"/>
+          </svg>
+        </div>
+        <h3>Utilitare &amp; Camioane</h3>
+        <p>ITP pentru autovehicule de transport marfă, microbuze și vehicule de mare tonaj.</p>
+        <span class="sc-chip">~60 min</span>
+      </article>
+
+      <article class="service-card reveal-item">
+        <div class="sc-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 30h34M9 30l2.5-9h25l2.5 9M13 21l1.5-6h19l1.5 6"/>
+            <circle cx="14" cy="34" r="3.5"/>
+            <circle cx="34" cy="34" r="3.5"/>
+            <path d="M22 9l-3 5h5l-3 5"/>
+          </svg>
+        </div>
+        <h3>Hibrid &amp; Electric</h3>
+        <p>Stație echipată pentru vehicule hibride și electrice. Verificare completă cu protocoale specifice.</p>
+        <span class="sc-chip">~40 min</span>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section id="cum-functioneaza" class="how-it-works">
+  <div class="container">
+    <div class="section-head">
+      <p class="section-tag">Procesul</p>
+      <h2>Simplu, în 3 pași</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal-item">
+        <div class="step-num mono">01</div>
+        <h3>Programare</h3>
+        <p>Completează formularul sau sună-ne. Îți confirmăm data și ora în câteva minute.</p>
+      </div>
+      <div class="step-arrow reveal-item" aria-hidden="true">→</div>
+      <div class="step reveal-item">
+        <div class="step-num mono">02</div>
+        <h3>Inspecție</h3>
+        <p>Tehnicieni autorizați RAR verifică vehiculul tău cu echipament de ultimă generație.</p>
+      </div>
+      <div class="step-arrow reveal-item" aria-hidden="true">→</div>
+      <div class="step reveal-item">
+        <div class="step-num mono">03</div>
+        <h3>Certificat</h3>
+        <p>Primești certificatul ITP pe loc. Fără așteptare suplimentară.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="despre" class="about">
+  <div class="container about-inner">
+    <div class="about-left reveal-item">
+      <p class="section-tag">Cine suntem</p>
+      <h2>Autorizați RAR.<br>Deschiși din 2017.</h2>
+      <p class="about-body">DIAVAS AYAN S.R.L. este o stație ITP autorizată de Registrul Auto Român, situată în cartierul Grigorescu din Cluj-Napoca. Verificăm autoturisme, vehicule utilitare, rulote și remorci pe orice tip de combustibil — benzină, motorină, GPL, GNC, hibrid sau electric.</p>
+      <p class="about-body">O echipă mică, responsabilă. Îți oferim o inspecție corectă, transparentă și rapidă. Dacă ceva nu e în regulă, îți spunem exact ce și de ce.</p>
+      <a href="#programare" class="btn-primary">Programare online</a>
+    </div>
+    <div class="about-right reveal-item">
+      <div class="trust-grid">
+        <div class="trust-item">
+          <span class="trust-num mono">RAR</span>
+          <span class="trust-label">Autorizat</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-num mono">2017</span>
+          <span class="trust-label">An fondare</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-num mono">5+</span>
+          <span class="trust-label">Angajați specializați</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-num mono">6</span>
+          <span class="trust-label">Tipuri de vehicule</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BOOKING ===== -->
+<section id="programare" class="booking">
+  <div class="container">
+    <div class="section-head">
+      <p class="section-tag">Programare</p>
+      <h2>Rezervă-ți locul</h2>
+    </div>
+    <div class="booking-inner">
+      <form id="bookingForm" class="booking-form reveal-item" novalidate autocomplete="on">
+        <div class="form-row">
+          <label class="form-group">
+            <span class="form-label">Tip vehicul</span>
+            <select name="tip" required>
+              <option value="">Selectează tipul...</option>
+              <option>Autoturism — benzină / diesel</option>
+              <option>Autoturism — GPL sau GNC</option>
+              <option>Autoutilitar / Microbuz</option>
+              <option>Hibrid / Electric</option>
+              <option>Rulotă / Remorcă</option>
+            </select>
+          </label>
+          <label class="form-group">
+            <span class="form-label">Data preferată</span>
+            <input type="date" name="data" required autocomplete="off">
+          </label>
+        </div>
+        <div class="form-row">
+          <label class="form-group">
+            <span class="form-label">Nume</span>
+            <input type="text" name="nume" placeholder="Ion Popescu" required autocomplete="name">
+          </label>
+          <label class="form-group">
+            <span class="form-label">Telefon</span>
+            <input type="tel" name="telefon" placeholder="07XX XXX XXX" required autocomplete="tel">
+          </label>
+        </div>
+        <label class="form-group">
+          <span class="form-label">Observații <span class="opt">— opțional</span></span>
+          <textarea name="obs" rows="3" placeholder="Număr înmatriculare, mențiuni speciale..."></textarea>
+        </label>
+        <button type="submit" class="btn-primary btn-submit">
+          Trimite cererea
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </form>
+
+      <div class="booking-side reveal-item">
+        <div class="contact-card">
+          <h3>Contact direct</h3>
+          <div class="contact-item">
+            <span class="ci-label">Telefon</span>
+            <!-- TODO: înlocuiește cu numărul real de pe pagina Facebook Diavas ITP -->
+            <a href="tel:+40000000000" class="ci-val ci-link">+40 XXX XXX XXX</a>
+          </div>
+          <div class="contact-item">
+            <span class="ci-label">Adresă</span>
+            <span class="ci-val">Strada Beiușului 54A<br>Cluj-Napoca, Jud. Cluj</span>
+          </div>
+          <div class="contact-item">
+            <span class="ci-label">Program</span>
+            <span class="ci-val">Luni–Vineri &nbsp;08:00–18:00<br>Sâmbătă &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;08:00–13:00</span>
+          </div>
+          <a href="https://maps.google.com/?q=Strada+Beiusului+54A+Cluj-Napoca" target="_blank" rel="noopener noreferrer" class="btn-ghost btn-map">
+            Deschide în Google Maps ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer id="contact" class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="logo-mark sm">D</span>
+      <span class="logo-text">DIAVAS<span class="logo-itp">ITP</span></span>
+    </div>
+    <p class="footer-addr">Strada Beiușului 54A, Cluj-Napoca &nbsp;·&nbsp; Autorizat RAR</p>
+    <p class="footer-legal">© 2024 DIAVAS AYAN S.R.L. &nbsp;·&nbsp; CUI 37882800</p>
+  </div>
+</footer>
+
+<!-- ===== SUCCESS MODAL ===== -->
+<div id="successModal" class="modal-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="successTitle">
+  <div class="modal-box">
+    <div class="modal-icon" aria-hidden="true">✓</div>
+    <h3 id="successTitle">Cerere trimisă!</h3>
+    <p>Vă vom contacta în cel mai scurt timp pentru confirmare.</p>
+    <button class="btn-primary" id="modalClose">Închide</button>
+  </div>
+</div>
+
+<script type="module" src="assets/main.js"></script>
+</body>
+</html>
